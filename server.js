@@ -16,7 +16,9 @@ const app = express()
 
 // Configure express app
 app.use(express.json());
-app.use(cors()); 
+app.use(cors({
+    origin: 'https://timetable-itproj-e2ce1e31bd73.herokuapp.com/'
+})); 
 app.use("/api/events", eventRoute);
 
 // Connect to database
