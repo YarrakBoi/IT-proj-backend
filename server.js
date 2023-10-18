@@ -16,10 +16,13 @@ const app = express()
 
 // Configure express app
 app.use(express.json());
-app.use(cors()); 
+app.use(cors({
+    origin: 'https://it-backend-f9df5768f845.herokuapp.com',
+    credentials: true,
+})); 
 app.use("/api/events", eventRoute);
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", 'https://timetable-it-11e90cc8646f.herokuapp.com');
+    res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
