@@ -16,10 +16,7 @@ const app = express()
 
 // Configure express app
 app.use(express.json());
-app.use(cors({
-    origin : "https://timetable-it-11e90cc8646f.herokuapp.com/",
-    credentials: true,
-})); 
+app.use(cors()); 
 app.use("/api/events", eventRoute);
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
